@@ -2,7 +2,7 @@ import { Card, Column, Row, Line, Text, Icon, SmartImage } from "@/once-ui/compo
 
 export default function ProximaBCard() {
   return (
-    <a href="http://localhost:5173/algo-visualizers/#/sorting-visualizer/bubble" 
+    <a href="https://frontend-odddsey.vercel.app/#/sorting-visualizer/bubble" 
        style={{ textDecoration: 'none' }}>
       <Card maxWidth={24} radius="l-4" direction="column">
         <SmartImage
