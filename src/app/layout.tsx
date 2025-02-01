@@ -2,8 +2,7 @@ import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
-
-import { Footer, Header} from "@/components";
+import { Footer, Header } from "@/components";
 import { baseURL, effects, style } from "@/app/resources";
 
 import { Inter } from "next/font/google";
@@ -11,6 +10,7 @@ import { Source_Code_Pro } from "next/font/google";
 
 import { person, home } from "@/app/resources/content";
 import { Background, Column, Flex, ToastProvider } from "@/once-ui/components";
+import { SceneWrapper } from './SceneWrapper';
 
 const primary = Inter({
   variable: "--font-primary",
@@ -22,14 +22,8 @@ type FontConfig = {
   variable: string;
 };
 
-/*
-	Replace with code for secondary and tertiary fonts
-	from https://once-ui.com/customize
-*/
 const secondary: FontConfig | undefined = undefined;
 const tertiary: FontConfig | undefined = undefined;
-/*
- */
 
 const code = Source_Code_Pro({
   variable: "--font-code",
@@ -112,9 +106,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               opacity: effects.lines.opacity as any,
             }}
           />
-          <Flex fillWidth minHeight="20"></Flex>
+          <Flex fillWidth minHeight="16"></Flex>
           <Header />
-            <Flex
+          <SceneWrapper />
+          <Flex
             position="relative"
             zIndex={0}
             fillWidth
@@ -123,11 +118,11 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             horizontal="center"
             flex={1}
             style={{ width: "100%" }}
-            >
+          >
             <Flex horizontal="center" fillWidth minHeight="0">
-             {children}
+              {children}
             </Flex>
-            </Flex>
+          </Flex>
           <Footer />
         </Column>
       </ToastProvider>

@@ -1,13 +1,43 @@
-import React from 'react';
-import EditorComponent from '@/components/ui/EditorComponent';
-const SortingPage: React.FC = () => {
-    return (
-        <div>
-            <EditorComponent/>
-            <h1>Sorting Algorithms</h1>
-            <p>Welcome to the sorting algorithms learning page!</p>
-        </div>
-    );
-};
+import { Column, Flex, Heading } from "@/once-ui/components";
+import { Mailchimp } from "@/components";
+import { Posts } from "@/components/blog/Posts";
+import { baseURL } from "@/app/resources";
+import { blog, person, newsletter } from "@/app/resources/content";
 
-export default SortingPage;
+
+export default function Blog() {
+  return (
+    <Column maxWidth="s">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            headline: blog.title,
+            description: blog.description,
+            url: `https://${baseURL}/blog`,
+            image: `${baseURL}/og?title=${encodeURIComponent(blog.title)}`,
+            author: {
+              "@type": "Person",
+              name: person.name,
+              image: {
+                "@type": "ImageObject",
+                url: `${baseURL}${person.avatar}`,
+              },
+            },
+          }),
+        }}
+      />
+      <Heading marginBottom="l" variant="display-strong-s">
+        {blog.title}
+      </Heading>
+      <Column fillWidth flex={1}>
+        <Posts range={[1, 3]} thumbnail />
+        <Posts range={[4]} columns="2" />
+      </Column>
+     
+    </Column>
+  );
+}

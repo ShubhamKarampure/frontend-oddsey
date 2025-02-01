@@ -1,0 +1,35 @@
+@use '/src/host/styles/theme';
+
+.tourWrapper {
+  display: none;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  .tour {
+    border: 1px solid theme.$base;
+    padding: 8px 16px;
+    background-color: theme.$primary;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background-color: #022c22;
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .tourWrapper {
+    display: flex;
+  }
+}
