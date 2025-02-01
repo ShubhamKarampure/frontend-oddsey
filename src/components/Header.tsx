@@ -4,33 +4,30 @@ import { usePathname, useRouter } from "next/navigation";
 import { Fade, Flex, Button, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 import { useEffect, useState } from "react";
-import { routes, display } from "@/app/resources";
-import { person, home, about, blog, work, gallery } from "@/app/resources/content";
+import { routes } from "@/app/resources";
 
 export const Header = () => {
   const pathname = usePathname() ?? "";
   const router = useRouter();
 
   const handleLogout = () => {
-    // Perform any logout logic here
     router.push("/");
   };
 
-  const shouldShowNavbar = pathname !== "/" && pathname !== "/login" && pathname !== "/signup";
+  // Define when to show the main navbar and when to show the custom navbar
+  const shouldShowMainNavbar = 
+    pathname !== "/" && 
+    pathname !== "/login" && 
+    pathname !== "/signup" && 
+    !pathname.startsWith("/learn/");
+
+  const shouldShowLearnNavbar = pathname.startsWith("/learn/") && pathname !== "/learn";
 
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
       <Fade show="s" fillWidth position="fixed" bottom="0" to="top" height="80" zIndex={9} />
-      <Flex
-        fitHeight
-        className={styles.position}
-        as="header"
-        zIndex={9}
-        fillWidth
-        padding="8"
-        horizontal="center"
-      >
+      <Flex fitHeight className={styles.position} as="header" zIndex={9} fillWidth padding="8" horizontal="center">
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           <Flex hide="s">
             <img src="../../trademark/logo.png" alt="Logo" width={150} className={styles.logo} />
@@ -38,112 +35,57 @@ export const Header = () => {
         </Flex>
         <Flex fillWidth horizontal="end" vertical="center">
           {pathname === "/" && (
-            <Flex
-              paddingRight="12"
-              horizontal="end"
-              vertical="center"
-              textVariant="body-default-s"
-              gap="20"
-            >
+            <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s" gap="20">
               <Button href="/login">Login</Button>
               <Button href="/signup">Signup</Button>
             </Flex>
           )}
-          {shouldShowNavbar && (
+
+          {/* Main Navbar */}
+          {shouldShowMainNavbar && (
             <Flex fillWidth horizontal="center">
-              <Flex
-                background="surface"
-                border="neutral-medium"
-                radius="m-4"
-                shadow="l"
-                padding="4"
-                horizontal="center"
-              >
+              <Flex background="surface" border="neutral-medium" radius="m-4" shadow="l" padding="4" horizontal="center">
                 <Flex gap="4" vertical="center" textVariant="body-default-s">
-                  {routes["/"] && (
-                    <ToggleButton prefixIcon="home" href="/" selected={pathname === "/"} />
-                  )}
-                  <Line vert maxHeight="24" />
                   {routes["/about"] && (
                     <>
-                      <ToggleButton
-                        className="s-flex-hide"
-                        prefixIcon="person"
-                        href="/about"
-                        label={about.label}
-                        selected={pathname === "/about"}
-                      />
-                      <ToggleButton
-                        className="s-flex-show"
-                        prefixIcon="person"
-                        href="/about"
-                        selected={pathname === "/about"}
-                      />
+                      <ToggleButton className="s-flex-hide" prefixIcon="person" href="/about" label="Profile" selected={pathname === "/about"} />
+                      <ToggleButton className="s-flex-show" prefixIcon="person" href="/about" selected={pathname === "/about"} />
                     </>
                   )}
-                  {routes["/work"] && (
+                  {routes["/learn"] && (
                     <>
-                      <ToggleButton
-                        className="s-flex-hide"
-                        prefixIcon="grid"
-                        href="/work"
-                        label={work.label}
-                        selected={pathname.startsWith("/work")}
-                      />
-                      <ToggleButton
-                        className="s-flex-show"
-                        prefixIcon="grid"
-                        href="/work"
-                        selected={pathname.startsWith("/work")}
-                      />
+                      <ToggleButton className="s-flex-hide" prefixIcon="grid" href="/learn" label="Learn" selected={pathname.startsWith("/learn")} />
+                      <ToggleButton className="s-flex-show" prefixIcon="grid" href="/learn" selected={pathname.startsWith("/learn")} />
                     </>
                   )}
                   {routes["/blog"] && (
                     <>
-                      <ToggleButton
-                        className="s-flex-hide"
-                        prefixIcon="book"
-                        href="/blog"
-                        label={blog.label}
-                        selected={pathname.startsWith("/blog")}
-                      />
-                      <ToggleButton
-                        className="s-flex-show"
-                        prefixIcon="book"
-                        href="/blog"
-                        selected={pathname.startsWith("/blog")}
-                      />
-                    </>
-                  )}
-                  {routes["/gallery"] && (
-                    <>
-                      <ToggleButton
-                        className="s-flex-hide"
-                        prefixIcon="gallery"
-                        href="/gallery"
-                        label={gallery.label}
-                        selected={pathname.startsWith("/gallery")}
-                      />
-                      <ToggleButton
-                        className="s-flex-show"
-                        prefixIcon="gallery"
-                        href="/gallery"
-                        selected={pathname.startsWith("/gallery")}
-                      />
+                      <ToggleButton className="s-flex-hide" prefixIcon="grid" href="/blog" label="Blog" selected={pathname.startsWith("/blog")} />
+                      <ToggleButton className="s-flex-show" prefixIcon="grid" href="/blog" selected={pathname.startsWith("/blog")} />
                     </>
                   )}
                 </Flex>
               </Flex>
             </Flex>
           )}
-          {shouldShowNavbar && (
-            <Flex
-              paddingRight="12"
-              horizontal="end"
-              vertical="center"
-              textVariant="body-default-s"
-              gap="20"
-            >
+
+          {/* Custom Learn Navbar */}
+          {shouldShowLearnNavbar && (
+            <Flex fillWidth horizontal="center">
+              <Flex background="surface" border="neutral-medium" radius="m-4" shadow="l" padding="4" horizontal="center">
+                <Flex gap="4" vertical="center" textVariant="body-default-s">
+                  <ToggleButton prefixIcon="book" href="/learn/sorting/study-material" label="Study Material" selected={pathname.endsWith("/study-material")} />
+                  <ToggleButton prefixIcon="grid" href="/learn/sorting/visualize" label="Visualize" selected={pathname.endsWith("/visualize")} />
+                  <ToggleButton prefixIcon="code" href="/learn/sorting/code" label="Code" selected={pathname.endsWith("/code")} />
+                  <ToggleButton prefixIcon="file" href="/learn/sorting/sheets" label="Sheets" selected={pathname.endsWith("/sheets")} />
+                  <ToggleButton prefixIcon="help" href="/learn/sorting/quiz" label="Quiz" selected={pathname.endsWith("/quiz")} />
+                </Flex>
+              </Flex>
+            </Flex>
+          )}
+
+          {(shouldShowMainNavbar || shouldShowLearnNavbar) && (
+            <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s" gap="20">
               <Button onClick={handleLogout}>Logout</Button>
             </Flex>
           )}

@@ -1,0 +1,63 @@
+---
+title: "The 99% of Algorithms That Stay in the Drawer"
+publishedAt: "2024-03-05"
+image: "/images/gallery/img2.jpg"
+summary: "Mastering Data Structures and Algorithms (DSA) isn’t just about the successful implementations—it’s also about the countless approaches that don’t make it into the final solution."
+tag: "DSA"
+---
+
+import CodeBlock from '@components/CodeBlock';
+
+Mastering Data Structures and Algorithms (DSA) isn’t just about the successful implementations—it’s also about the countless approaches that don’t make it into the final solution. For every optimized algorithm, there are numerous discarded attempts, wrong turns, and inefficiencies that never see the light of day. But these "failed" approaches are just as valuable as the ones that succeed.
+
+## The Beauty of Unused Approaches
+
+It’s easy to see an incorrect algorithm as a failure, but in reality, it’s a stepping stone. Each discarded approach represents an attempt to refine efficiency, explore new logic, or push the boundaries of problem-solving. These trials help us understand what works—and, just as importantly, what doesn’t.
+
+## The Process of Refinement
+
+When approaching a problem, the first solution is rarely the most efficient. The initial attempt might be brute-force, a naive recursive approach, or an unoptimized data structure. Through debugging, performance testing, and refactoring, we iterate toward better solutions. The process of refinement is not about discarding ideas but about shaping them into their most optimal form.
+
+<CodeBlock className="my-24"
+    compact
+    codeInstances={[
+        {
+            code: `function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}`,
+            label: 'Naive Recursion',
+            language: 'javascript'
+        },
+        {
+            code: `function fibonacciDP(n, memo = {}) {
+    if (n in memo) return memo[n];
+    if (n <= 1) return n;
+    memo[n] = fibonacciDP(n - 1, memo) + fibonacciDP(n - 2, memo);
+    return memo[n];
+}`,
+            label: 'Optimized with Memoization',
+            language: 'javascript'
+        },
+    ]}
+    copyButton
+/>
+
+## Why the Drawer of Discarded Ideas Matters
+
+Each failed or suboptimal approach contributes to a deeper understanding of algorithmic thinking. A seemingly inefficient method today might inspire an innovative approach tomorrow. Many optimized solutions originate from refining earlier, less efficient attempts.
+
+## Learning Through Failure
+
+The best programmers don’t just solve problems; they explore multiple solutions and analyze why some work better than others. Failed attempts teach critical lessons about algorithm complexity, scalability, and trade-offs between time and space efficiency.
+
+## Revisiting Old Solutions
+
+Many groundbreaking ideas in computer science stem from revisiting old problems with fresh perspectives. What was once an inefficient sorting algorithm might become relevant with parallel processing. A disregarded heuristic might fit perfectly in an AI-driven optimization problem. The drawer of discarded solutions is a treasure trove of inspiration.
+
+![Algorithm Optimization Illustration.](/images/projects/project-01/cover-01.jpg)
+
+## Final Thoughts
+
+The final optimized algorithm is just the tip of the iceberg—the visible 1%. The other 99% of attempts, iterations, and discarded approaches are just as valuable. They represent perseverance, analytical growth, and the iterative nature of problem-solving. So next time you hit a roadblock, don’t be afraid to revisit past ideas. The key to an optimal solution might be hidden in the drawer, waiting to be rediscovered.
+

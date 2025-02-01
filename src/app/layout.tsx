@@ -112,9 +112,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
               opacity: effects.lines.opacity as any,
             }}
           />
-          <Flex fillWidth minHeight="16"></Flex>
+          <Flex fillWidth minHeight="20"></Flex>
           <Header />
-          <Flex
+            <Flex
             position="relative"
             zIndex={0}
             fillWidth
@@ -122,11 +122,12 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             paddingX="l"
             horizontal="center"
             flex={1}
-          >
+            style={{ width: "100%" }}
+            >
             <Flex horizontal="center" fillWidth minHeight="0">
              {children}
             </Flex>
-          </Flex>
+            </Flex>
           <Footer />
         </Column>
       </ToastProvider>

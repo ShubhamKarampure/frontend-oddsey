@@ -37,7 +37,7 @@ export function LoginForm({
             // }
 
             // For now, we'll just navigate to home
-            router.push('/home');
+            router.push('/about');
         } catch (error) {
             console.error('Login error:', error);
             // Handle error appropriately
@@ -56,7 +56,7 @@ export function LoginForm({
             // Add your Google authentication logic here
             // Example:
             // await signInWithGoogle();
-            router.push('/home');
+            router.push('/about');
         } catch (error) {
             console.error('Google login error:', error);
             // Handle error appropriately

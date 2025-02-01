@@ -35,7 +35,7 @@ export function SignUpForm({
         console.log('Sign up successful');
         
         // Navigate to /home upon successful sign-up
-        router.push('/home');
+        router.push('/about');
     };
 
     const handleLoginClick = () => {
