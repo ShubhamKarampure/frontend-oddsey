@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { usePathname, useRouter } from "next/navigation";
 import { Fade, Flex, Button, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
@@ -23,6 +22,10 @@ export const Header = () => {
 
   const shouldShowLearnNavbar = pathname.startsWith("/learn/") && pathname !== "/learn";
 
+  const handleLogoClick = () => {
+    router.push("/about");
+  };
+
   return (
     <>
       <Fade hide="s" fillWidth position="fixed" height="80" zIndex={9} />
@@ -30,7 +33,14 @@ export const Header = () => {
       <Flex fitHeight className={styles.position} as="header" zIndex={9} fillWidth padding="8" horizontal="center">
         <Flex paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s">
           <Flex hide="s">
-            <img src="../../trademark/logo.png" alt="Logo" width={150} className={styles.logo} />
+            <img 
+              src="../../trademark/logo.png" 
+              alt="Logo" 
+              width={150} 
+              className={styles.logo} 
+              onClick={handleLogoClick} // Add onClick handler here
+              style={{ cursor: 'pointer' }} // Optional: to indicate that it's clickable
+            />
           </Flex>
         </Flex>
         <Flex fillWidth horizontal="end" vertical="center">

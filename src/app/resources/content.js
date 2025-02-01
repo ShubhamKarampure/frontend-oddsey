@@ -1,8 +1,8 @@
 import { InlineCode } from "@/once-ui/components";
 
 const person = {
-  firstName: "TejasGod :",
-  lastName: "Tejas",
+  firstName: "Tejas",
+  lastName: "Patel",
   leetcodeUsername: "Tejas_leetcode", // Added
   codeforcesUsername: "Tejas_cf", // Added
   get name() {
@@ -15,7 +15,7 @@ const person = {
     };
   },
   role: "DSA student",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.png",
   location: "Asia/India",
   languages: ["Python", "CPP", "Javascript"],
 };
@@ -117,7 +117,7 @@ const about = {
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/gallery/img1.jpg",
+            src: "/images/gallery/fly_logo.jpg",
             alt: "Once UI Project",
             width: 16,
             height: 9,
@@ -138,7 +138,15 @@ const about = {
             in overall company revenue.
           </>,
         ],
-        images: [],
+        images: [
+          // optional: leave the array empty if you don't want to display images
+          {
+            src: "/images/gallery/create3_logo.jpg",
+            alt: "Once UI Project",
+            width: 16,
+            height: 9,
+          },
+        ],
       },
     ],
   },
@@ -166,13 +174,13 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/gallery/img7.jpg",
+            src: "/images/gallery/figma1.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/gallery/img6.jpg",
+            src: "/images/gallery/figma2.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -185,7 +193,7 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/gallery/img5.jpg",
+            src: "/images/gallery/next.jpg",
             alt: "Project image",
             width: 16,
             height: 9,

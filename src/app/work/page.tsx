@@ -9,7 +9,6 @@ export default function Work() {
 
   return (
     <Column maxWidth="m">
-      
       <Projects />
     </Column>
   );
