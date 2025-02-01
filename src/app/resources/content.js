@@ -15,7 +15,7 @@ const person = {
     };
   },
   role: "DSA student",
-  avatar: "/images/avatar.jpeg",
+  avatar: "/images/avatar.jpg",
   location: "Asia/India",
   languages: ["Python", "CPP", "Javascript"],
 };
@@ -25,11 +25,7 @@ const newsletter = {
   title: <>Subscribe to Algographs Newsletter</>,
   description: (
     <>
-      Tejas Patel is a struggling DSA student who finds string problems 
-      particularly challenging. Concepts like pattern matching and string 
-      manipulation often leave him stuck, but he's eager to improve. 
-      With the right guidance and practice, he hopes to strengthen his 
-      problem-solving skills and gain confidence in DSA.
+      Our newsletter is where we share our latest tutorials, tips, and tricks. Stay up to date with our latest content!
     </>
   ),
 };
@@ -110,18 +106,18 @@ const about = {
         role: "Senior Design Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+           Concepts like pattern matching and string 
+           manipulation often leave me stuck, but I'm eager to improve.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+             I hope to strengthen 
+             problem-solving skills and gain confidence in DSA
           </>,
         ],
         images: [
           // optional: leave the array empty if you don't want to display images
           {
-            src: "/images/projects/project-01/cover-01.jpg",
+            src: "/images/gallery/img1.jpg",
             alt: "Once UI Project",
             width: 16,
             height: 9,
@@ -170,13 +166,13 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-02.jpg",
+            src: "/images/gallery/img7.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
+            src: "/images/gallery/img6.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
@@ -189,7 +185,7 @@ const about = {
         // optional: leave the array empty if you don't want to display images
         images: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
+            src: "/images/gallery/img5.jpg",
             alt: "Project image",
             width: 16,
             height: 9,
