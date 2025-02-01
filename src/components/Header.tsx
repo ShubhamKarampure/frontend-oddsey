@@ -13,6 +13,13 @@ export const Header = () => {
     router.push("/");
   };
 
+  // Get the current algorithm type from the path
+  const getAlgorithmType = () => {
+    if (pathname.includes("/sorting")) return "sorting";
+    if (pathname.includes("/pathfinding")) return "pathfinding";
+    return "";
+  };
+
   // Define when to show the main navbar and when to show the custom navbar
   const shouldShowMainNavbar = 
     pathname !== "/" && 
@@ -24,6 +31,12 @@ export const Header = () => {
 
   const handleLogoClick = () => {
     router.push("/about");
+  };
+
+  // Function to generate the correct path for learn section buttons
+  const getLearnPath = (section) => {
+    const algorithmType = getAlgorithmType();
+    return `/learn/${algorithmType}/${section}`;
   };
 
   return (
@@ -38,8 +51,8 @@ export const Header = () => {
               alt="Logo" 
               width={150} 
               className={styles.logo} 
-              onClick={handleLogoClick} // Add onClick handler here
-              style={{ cursor: 'pointer' }} // Optional: to indicate that it's clickable
+              onClick={handleLogoClick}
+              style={{ cursor: 'pointer' }}
             />
           </Flex>
         </Flex>
@@ -84,11 +97,36 @@ export const Header = () => {
             <Flex fillWidth horizontal="center">
               <Flex background="surface" border="neutral-medium" radius="m-4" shadow="l" padding="4" horizontal="center">
                 <Flex gap="4" vertical="center" textVariant="body-default-s">
-                  <ToggleButton prefixIcon="book" href="/learn/sorting/study-material" label="Study Material" selected={pathname.endsWith("/study-material")} />
-                  <ToggleButton prefixIcon="grid" href="/learn/sorting/visualize" label="Visualize" selected={pathname.endsWith("/visualize")} />
-                  <ToggleButton prefixIcon="code" href="/learn/sorting/code" label="Code" selected={pathname.endsWith("/code")} />
-                  <ToggleButton prefixIcon="file" href="/learn/sorting/sheets" label="Sheets" selected={pathname.endsWith("/sheets")} />
-                  <ToggleButton prefixIcon="help" href="/learn/sorting/quiz" label="Quiz" selected={pathname.endsWith("/quiz")} />
+                  <ToggleButton 
+                    prefixIcon="book" 
+                    href={getLearnPath("study-material")} 
+                    label="Study Material" 
+                    selected={pathname.endsWith("/study-material")} 
+                  />
+                  <ToggleButton 
+                    prefixIcon="grid" 
+                    href={getLearnPath("visualize")} 
+                    label="Visualize" 
+                    selected={pathname.endsWith("/visualize")} 
+                  />
+                  <ToggleButton 
+                    prefixIcon="code" 
+                    href={getLearnPath("code")} 
+                    label="Code" 
+                    selected={pathname.endsWith("/code")} 
+                  />
+                  <ToggleButton 
+                    prefixIcon="file" 
+                    href={getLearnPath("sheets")} 
+                    label="Sheets" 
+                    selected={pathname.endsWith("/sheets")} 
+                  />
+                  <ToggleButton 
+                    prefixIcon="help" 
+                    href={getLearnPath("quiz")} 
+                    label="Quiz" 
+                    selected={pathname.endsWith("/quiz")} 
+                  />
                 </Flex>
               </Flex>
             </Flex>

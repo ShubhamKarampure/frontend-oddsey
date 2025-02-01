@@ -24,6 +24,6 @@
     "strictNullChecks": true,
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/learn/sorting/code", "src/app/learn/sorting/sheets"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/learn/pathfinding/code", "src/app/learn/pathfinding/sheets"],
   "exclude": ["node_modules"]
 }

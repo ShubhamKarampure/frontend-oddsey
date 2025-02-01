@@ -27,7 +27,7 @@ const DSAPlatform = () => {
       title: "Popular Algorithms",
       courses: [
         { id: 'binary-search', title: 'Binary Search', difficulty: 'Easy', timeToComplete: '2 hours', imageAlt: 'Binary Search Illustration' },
-        { id: 'graphs', title: 'Graph Algorithms', difficulty: 'Medium', timeToComplete: '4 hours', imageAlt: 'Graph Algorithms Illustration' },
+        { id: 'pathfinding', title: 'Pathfinding Algorithms', difficulty: 'Hard', timeToComplete: '6 hours', imageAlt: 'Pathfinding Illustration' },
         { id: 'trees', title: 'Tree Data Structures', difficulty: 'Medium', timeToComplete: '3 hours', imageAlt: 'Tree Data Structures Illustration' },
         { id: 'sorting', title: 'Sorting Algorithms', difficulty: 'Medium', timeToComplete: '3 hours', imageAlt: 'Sorting Algorithms Illustration' }
       ]
